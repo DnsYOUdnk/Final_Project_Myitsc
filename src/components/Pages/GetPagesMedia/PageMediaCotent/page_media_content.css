@@ -1,0 +1,115 @@
+.page__media__content__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-bottom: 140px;
+}
+
+.page__media__content__wrapper h2 {
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 0px -8px 2px rgba(0, 0, 0, 0.6);
+    padding: 10px 0;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 130%;
+    letter-spacing: -0.01em;
+}
+
+.page__media__content__inform {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.page__media__content__pic {
+    padding: 10px;
+    box-sizing: border-box;
+    background: linear-gradient(180deg, #7779a0 -52%, rgba(21, 27, 100, 0.17) 100%);
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.page__media__content__pic img {
+    border-radius: 16px;
+    height: 680px;
+}
+
+.page__media__content__inform__table {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.page__media__content__inform__items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-size: 20px;
+    line-height: 160%;
+    border: 2px solid rgba(35, 42, 83, 0.684);
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.page__media__content__inform__item span {
+    font-weight: 800;
+    letter-spacing: 1px;
+    padding-right: 6px;
+}
+
+.page__media__content__btn button {
+    border-radius: 10px;
+    background:  linear-gradient(180deg, #7779a0 -52%, rgba(21, 27, 100, 0.17) 100%);
+    border: none;
+    cursor: pointer;
+    padding: 10px 12px;
+}
+
+.page__media__content__buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.page__media__content__view {
+    margin: 0 10px;
+}
+
+.page__media__content__video__btn button{
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 6px;
+    color: rgba(255, 255, 255, 0.744);
+    background:  linear-gradient(180deg, #7779a0 -52%, rgba(21, 27, 100, 0.17) 100%);
+    padding: 10px 32px;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+.page__media__content__video__btn button:active {
+    background:  linear-gradient(180deg, #232642 -62%, rgba(25, 33, 128, 0.27) 100%);
+}
+
+.media__loading {
+    position: fixed;
+    top: 0;
+    bottom: 30%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.media__loading.loading__palyer {
+    background: linear-gradient(180deg, #232642 -62%, rgba(20, 22, 47, 0.15) 100%);
+    backdrop-filter: blur(1px);
+}
+
+.media__loading__animation {
+    max-width: 400px;
+    width: 30%;
+}
