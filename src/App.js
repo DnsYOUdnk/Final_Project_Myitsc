@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { Header } from "./components/Header/Header";
+import { Main } from "./components/Main/Main";
+import { Footer } from "./components/Footer/Footer";
+import { dataContext } from "./dataContext/dataContext";
+import { useState } from "react";
+import './styles/style.css';
+import './styles/media.css';
+import { getLikedData, changeLikedData } from "./utils/changeMarkedLike";
 
 function App() {
+  const [searchValue, setSearchValue] = useState('');
+  const likedData = getLikedData();
+  const [markedElements, setMarkedElements] = useState(likedData);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <dataContext.Provider value = {{ searchValue, setSearchValue, markedElements, setMarkedElements, changeLikedData }}>
+        <div className="App">
+          < Header /> 
+          < Main />
+          < Footer />
+        </div>
+      </dataContext.Provider>
   );
 }
 
