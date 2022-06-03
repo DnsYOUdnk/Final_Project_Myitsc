@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import { PageCartoons } from "../Pages/PageCartoons/PageCartoons";
 import { PageEmpty } from "../Pages/PageEmpty/PageEmpty";
 import { Home } from "../Pages/PageHome/Home";
-import { PageMediaContent } from "../Pages/GetPagesMedia/PageMediaCotent/PageMediaContent";
+import { PageMediaContent } from "../Pages/PageMediaCotent/PageMediaContent";
 import { PageMovie } from "../Pages/PageMovie/PageMovie";
 import { PageSerials } from "../Pages/PageSerials/PageSerials";
 import { WrapperScroll } from "../../utils/scrollToTop";

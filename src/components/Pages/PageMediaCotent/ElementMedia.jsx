@@ -1,13 +1,13 @@
-import ico_btn_like from "../../../../assets/image/ico-btn-like.png";
-import ico_btn_like_active from "../../../../assets/image/ico-btn-like-active.png";
-import ico_btn_view from "../../../../assets/image/ico-btn-view.png";
-import ico_btn_not_view from "../../../../assets/image/ico-btn-not-view.png";
+import ico_btn_like from "../../../assets/image/ico-btn-like.png";
+import ico_btn_like_active from "../../../assets/image/ico-btn-like-active.png";
+import ico_btn_view from "../../../assets/image/ico-btn-view.png";
+import ico_btn_not_view from "../../../assets/image/ico-btn-not-view.png";
 import './page_media_content.css'
 import { useContext, useEffect, useState } from "react";
-import { MediaPlayer } from "../../../MediaPlayer/MediaPlayer";
-import { dataContext } from "../../../../dataContext/dataContext";
+import { MediaPlayer } from "../../MediaPlayer/MediaPlayer";
+import { dataContext } from "../../../dataContext/dataContext";
 import Lottie from "lottie-react";
-import lottie_loading from '../../../../assets/json-animation/lottie-loading.json';
+import lottie_loading from '../../../assets/json-animation/lottie-loading.json';
 
 
 export const ElementMedia = ({ contentData }) => {
@@ -61,7 +61,7 @@ export const ElementMedia = ({ contentData }) => {
                 setAddLike(elem.liked)
             }
         });
-    }, [])
+    })
 
     return (
         <div className="page__media__content__wrapper">

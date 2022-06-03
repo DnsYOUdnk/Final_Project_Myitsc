@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { PageEmpty } from "../../PageEmpty/PageEmpty";
+import { PageEmpty } from "../PageEmpty/PageEmpty";
 import { ElementMedia } from "./ElementMedia";
 import Lottie from "lottie-react";
-import lottie_loading from '../../../../assets/json-animation/lottie-loading.json';
+import lottie_loading from '../../../assets/json-animation/lottie-loading.json';
 
 export const PageMediaContent = () => {
     const [contentData, setContentData] = useState([]);
@@ -29,7 +29,7 @@ export const PageMediaContent = () => {
                     setIsLoading(false)
                 })
         }
-    }, [])
+    })
 
     const stopLoading = () => {
         setIsLoading(!isLoading);
