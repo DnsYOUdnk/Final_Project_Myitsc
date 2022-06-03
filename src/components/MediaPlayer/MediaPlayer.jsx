@@ -12,8 +12,9 @@ export const MediaPlayer = ({addLinkVideo, setshowVideoPlyer, showVideoPlyer}) =
                 <div className="page__meadia__video-player__btn-close">
                     <button onClick={() => setshowVideoPlyer(!showVideoPlyer)}>Close</button>
                 </div>
-                < ReactPlayer 
+                < ReactPlayer className="page__media__player"
                     width={"80vw"}
+                    height={"60vh"}
                     url={videoUrl} 
                     controls={true} 
                     light={true} 

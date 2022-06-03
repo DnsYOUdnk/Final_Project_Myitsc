@@ -355,5 +355,9 @@
     .page__media__content__pic img {
         height: 380px;
     }
+    
+    .page__media__player {
+        height: 40vh !important;
+    }
 
 }
