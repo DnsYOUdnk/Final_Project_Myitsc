@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "./static/css/main.95947699.css",
+    "main.js": "./static/js/main.42a21b68.js",
+    "static/media/media__movie.jpg": "./static/media/media__movie.e7ffbb95d91fe8d1b050.jpg",
+    "static/media/Inter-Bold.ttf": "./static/media/Inter-Bold.1eca2d329458b92342aa.ttf",
+    "static/media/Inter-SemiBold.ttf": "./static/media/Inter-SemiBold.a41b925faf940d267b62.ttf",
+    "static/media/Inter-Light.ttf": "./static/media/Inter-Light.a6cdc9ac687f817dbfb5.ttf",
+    "static/media/Inter-Regular.ttf": "./static/media/Inter-Regular.a3e5baa244e35d0f891d.ttf",
+    "static/media/background__frame_section.png": "./static/media/background__frame_section.cfedf3e79212bfbd95f3.png",
+    "static/media/media__cartoons.jpg": "./static/media/media__cartoons.d627c74ad1bf9617177b.jpg",
+    "static/media/media__serials.jpg": "./static/media/media__serials.4be92f5d9608c3f425c1.jpg",
+    "static/media/logo.svg": "./static/media/logo.56b288fc39680b89e52d771981bbf2bb.svg",
+    "static/media/opportunities__choose.svg": "./static/media/opportunities__choose.007b906707155722a4d0.svg",
+    "static/media/opportunities__play.svg": "./static/media/opportunities__play.3acb3828b3b22e92ac29.svg",
+    "static/media/opportunities__enjoy.svg": "./static/media/opportunities__enjoy.9fd095d98528ef72963e.svg",
+    "static/media/footer__social__instagram.svg": "./static/media/footer__social__instagram.d1600bbcc06458bd94804eaa36ba43ed.svg",
+    "static/media/footer__social__twitter.svg": "./static/media/footer__social__twitter.3ca964f55cd33b21b6b693d0b9015418.svg",
+    "static/media/footer__social__facebook.svg": "./static/media/footer__social__facebook.86207f9fd5c31d57ea06e10f81578bf0.svg",
+    "index.html": "/index.html",
+    "main.95947699.css.map": "./static/css/main.95947699.css.map",
+    "main.42a21b68.js.map": "./static/js/main.42a21b68.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.95947699.css",
+    "static/js/main.42a21b68.js"
+  ]
+}
