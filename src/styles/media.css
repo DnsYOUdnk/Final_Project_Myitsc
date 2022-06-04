@@ -270,6 +270,15 @@
     .page__media__wrapper {
         gap: 40px;
     }
+
+    .carousel__media__item__movie,
+    .carousel__media__item__cartoons,
+    .carousel__media__item__serials {
+        max-width: 700px;
+        width: 90vw;
+        height: 420px;
+    }
+
 }
 
 @media screen and (max-width: 600px) { 
@@ -283,9 +292,8 @@
         gap: 20px;
     }
 
-    .choice__media__carousel {
-        width: auto;
-        height: 360px;
+    .carousel__media__desc span {
+        font-size: 36px;
     }
 
     .choice__media__carousel__nav {
@@ -361,6 +369,28 @@
     
     .page__media__player {
         height: 40vh !important;
+    }
+
+    .choice__media__carousel {
+        height: 300px;
+    }
+
+    .carousel__media__item__movie,
+    .carousel__media__item__cartoons,
+    .carousel__media__item__serials {
+        max-width: 500px;
+        width: 90vw;
+        height: 240px;
+        border-radius: 10px;
+    }
+
+    .carousel__media__desc {
+        border-radius: 10px;
+    }
+
+    .carousel__media__desc span {
+        font-size: 24px;
+        width: 60%;
     }
 
 }

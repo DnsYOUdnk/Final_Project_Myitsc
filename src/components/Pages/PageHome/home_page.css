@@ -221,28 +221,6 @@
     height: 500px;
 }
 
-/* .choice__media__carousel > .css-doq0dk img {
-    border-radius: 24px;
-    max-width: 700px;
-    width: 80vw;
-    cursor: pointer;
-} */
-
-/* .choice__media__carousel__title {
-    font-family: 'Inter-Bold', sans-serif;
-    font-size: 40px;
-    letter-spacing: 3px;
-    text-align: center;
-} */
-
-/* .carousel__media__item {
-    text-align: center;
-    font-family: 'Inter-Bold', sans-serif;
-    font-size: 32px;
-    letter-spacing: 3px;
-    color: rgba(255, 255, 255, 0.7);
-} */
-
 .carousel__media__item__movie,
 .carousel__media__item__cartoons,
 .carousel__media__item__serials {
