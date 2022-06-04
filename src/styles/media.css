@@ -237,6 +237,7 @@
             transform: translateX(0);
         }
         to {
+            visibility: hidden;
             transform: translateX(100%);
         }
     }
