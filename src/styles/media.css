@@ -195,6 +195,8 @@
     }
 
     .header__nav__items {
+        visibility: hidden;
+        overflow-x: hidden;
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -207,17 +209,17 @@
         height: 100vh;
         background-color: rgba(46, 68, 115, 0.5);
         backdrop-filter: blur(6px);
-        transform: translateX(100%);
-        visibility: hidden;
-        overflow-x: hidden;
-        transition: visibility 1s, transform 1s;
-        animation: slideOut 1s ease-out;
     }
 
     .openMenu {
         visibility: visible;
         transform: translateX(0);
         animation: slideOpen 1s ease-out;
+    }
+
+    .closeMenu {
+        transform: translateX(100%);
+        animation: slideOut 1s ease-out;
     }
 
     @keyframes slideOpen {
@@ -231,6 +233,7 @@
 
     @keyframes slideOut {
         from {
+            visibility: visible;
             transform: translateX(0);
         }
         to {
