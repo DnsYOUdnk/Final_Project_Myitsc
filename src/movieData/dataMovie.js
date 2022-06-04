@@ -77,8 +77,8 @@ export const getMovies = (quantity) => {
           max = films.length-1;
     let rand = Math.floor(min + Math.random() * (max + 1 - min));
     if(quantity > 1) {
-        let endArr = rand > films.length - quantity ? rand-quantity : rand;
-        return films.slice(endArr, rand+quantity)
+        let endArr = rand > films.length - quantity ? rand - quantity : rand;
+        return films.slice(endArr, endArr + quantity)
     } 
 
     return films[rand];
