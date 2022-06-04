@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getMovies } from "../../../jsonData/dataMovie";
+import { getMovies } from "../../../movieData/dataMovie";
 import { BestProductElement } from "./BestProductElement";
 import { v4 as uuidv4 } from "uuid";
 

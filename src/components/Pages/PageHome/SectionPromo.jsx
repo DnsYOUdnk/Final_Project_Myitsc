@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom"
-import { getMovies } from "../../../jsonData/dataMovie";
+import { getMovies } from "../../../movieData/dataMovie";
 
 export const SectionPromo = () => {
     const navigate = useNavigate();
