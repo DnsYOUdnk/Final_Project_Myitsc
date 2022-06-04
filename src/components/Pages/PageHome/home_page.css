@@ -221,26 +221,87 @@
     height: 500px;
 }
 
-.choice__media__carousel > .css-doq0dk img {
+/* .choice__media__carousel > .css-doq0dk img {
     border-radius: 24px;
     max-width: 700px;
     width: 80vw;
     cursor: pointer;
-}
+} */
 
-.choice__media__carousel__title {
+/* .choice__media__carousel__title {
     font-family: 'Inter-Bold', sans-serif;
     font-size: 40px;
     letter-spacing: 3px;
     text-align: center;
-}
+} */
 
-.carousel__media__item {
+/* .carousel__media__item {
     text-align: center;
     font-family: 'Inter-Bold', sans-serif;
     font-size: 32px;
     letter-spacing: 3px;
     color: rgba(255, 255, 255, 0.7);
+} */
+
+.carousel__media__item__movie,
+.carousel__media__item__cartoons,
+.carousel__media__item__serials {
+    max-width: 800px;
+    width: 80vw;
+    height: 480px;
+    border-radius: 40px;
+    cursor: pointer;
+
+    position: relative;
+}
+
+.carousel__media__item__movie {
+    background: url(../../../assets/image/media__movie.jpg) no-repeat;
+    background-size: cover;
+}
+
+.carousel__media__item__cartoons {
+    background: url(../../../assets/image/media__cartoons.jpg) no-repeat;
+    background-size: cover;
+}
+
+.carousel__media__item__serials {
+    background: url(../../../assets/image/media__serials.jpg) center no-repeat;
+    background-size: cover;
+}
+
+.carousel__media__desc {
+    background-color: rgba(78, 83, 167, 0.4);
+    border-radius: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.carousel__media__desc span {
+    display: inline-block;
+    font-family: 'Inter-Bold', sans-serif;
+    font-weight: 700;
+    font-size: 52px;
+    letter-spacing: 2px;
+    color: rgb(255, 255, 255);
+    width: 80%;
+    text-align: center;
+    padding: 10px 30px;
+    background-color: rgba(23, 24, 54, 0.9);
+    border-radius: 10px;
+    box-shadow: 0px 0px 4px 4px rgb(0 0 0);
+}
+
+.carousel__media__desc:hover span {
+    color: rgba(255, 255, 255, 0.5);
+    box-shadow:inset 0px 0px 14px 4px rgb(0 0 0);
 }
 
 .choice__media__carousel__nav {

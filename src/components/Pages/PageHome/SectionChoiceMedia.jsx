@@ -2,9 +2,6 @@ import { useState } from 'react';
 import Carousel from 'react-spring-3d-carousel';
 import { v4 as uuidv4 } from "uuid";
 import { useNavigate } from "react-router-dom";
-import media__cartoons from "../../../assets/image/media__cartoons.jpg";
-import media__movie from "../../../assets/image/media__movie.jpg";
-import media__serials from "../../../assets/image/media__serials.png";
 
 export const SectionChoiceMedia1 = () => {
     const [stateCarousel, setStateCarousel] = useState({
@@ -18,17 +15,17 @@ export const SectionChoiceMedia1 = () => {
         {
           key: uuidv4(),
           hash: '/serials',
-          content: <p className='carousel__media__item'>Serials<img src={media__serials} alt="serials" /></p>
+          content: <div className="carousel__media__item__serials"><p className='carousel__media__desc'><span>Serials</span></p></div>
         },
         {
           key: uuidv4(),
           hash: '/cartoons',
-          content: <p className='carousel__media__item'>Cartoons<img src={media__cartoons} alt="cartoons" /></p>
+          content: <div className="carousel__media__item__cartoons"><p className='carousel__media__desc'><span>Cartoons</span></p></div>
         },
         {
           key: uuidv4(),
           hash: '/movie',
-          content: <p className='carousel__media__item'>Movie<img src={media__movie} alt="movie" /></p>
+          content: <div className="carousel__media__item__movie"><p className='carousel__media__desc'><span>Movie</span></p></div>
         }
     ]
     .map((slide, index) => {
