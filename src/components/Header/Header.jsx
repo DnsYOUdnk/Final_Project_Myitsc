@@ -24,6 +24,7 @@ export const Header = () => {
     }
 
     const startCloseMenu = (element) => {
+        if(!navMenu) return
         if(navMenu.classList.contains('openMenu') && (navMenu !== element)) {
             navMenu.classList.remove('openMenu');
             navMenu.classList.add('closeMenu');
