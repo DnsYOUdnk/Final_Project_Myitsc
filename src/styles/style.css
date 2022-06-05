@@ -65,6 +65,10 @@ html, body {
     flex-direction: column;
 }
 
+.App.active_menu {
+    overflow-y: hidden;
+}
+
 .header, 
 .footer {
     flex: 0 0 auto;
