@@ -34,7 +34,7 @@ export const ElementMedia = ({ contentData }) => {
         setIsLoading(true);
         setStopViewTrailer(false);
         if(/tt[0-9]*/g.test(id)) {
-            const response = await fetch(`https://imdb-api.com/en/API/YouTubeTrailer/k_7nwtgu1g/${id}`);
+            const response = await fetch(`https://imdb-api.com/en/API/YouTubeTrailer/k_674v0y48/${id}`);
             const answer = await response.json();
             setAddLinkVideo(answer);
         } else {

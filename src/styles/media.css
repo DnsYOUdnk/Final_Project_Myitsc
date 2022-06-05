@@ -255,10 +255,6 @@
         margin-bottom: 10px;
     }
 
-    .media__loading {
-        bottom: 30%;
-    }
-
     .media__loading__animation {
         max-width: 320px;
         width: 60%;

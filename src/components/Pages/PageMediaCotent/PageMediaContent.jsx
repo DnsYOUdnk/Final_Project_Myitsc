@@ -14,7 +14,7 @@ export const PageMediaContent = () => {
 
     useEffect(() => {
         if(/tt[0-9]*/g.test(id)) {
-            fetch(`https://imdb-api.com/en/API/Title/k_7nwtgu1g/${id}`)
+            fetch(`https://imdb-api.com/en/API/Title/k_674v0y48/${id}`)
                 .then(res => res.json())
                 .then(json => {
                     setContentData(json);
