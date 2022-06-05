@@ -13,7 +13,7 @@ export const changeLikedData = ( idBtn, setAddView, addView, setAddLike, addLike
 
     let findIndex = markedElements.findIndex(({id}) => id === mediaElement.id );
 
-    if( !addLike && findIndex !== -1 ) {
+    if( !addLike && !addView && findIndex !== -1 ) {
         markedElements = markedElements.filter(({id}) => id !== mediaElement.id);
     } else if( findIndex !== -1 ) {
         markedElements[findIndex].liked = addLike;
