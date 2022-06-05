@@ -6,18 +6,43 @@ import './header.css';
 
 
 export const Header = () => {
+    let navMenu = null;
+    let btnMenu = null;
+    let app = null;
+
+    const getNavMenu = (ul, btn) => {
+        app = document.querySelector('.App');
+        navMenu = ul;
+        btnMenu = btn;
+        if(btnMenu.classList.contains('open')) {
+            startCloseMenu();
+        } else {
+            navMenu.classList.add('openMenu');
+            app.classList.add('active_menu');
+            btnMenu.classList.add('open');
+        }
+    }
+
+    const startCloseMenu = (element) => {
+        if(navMenu.classList.contains('openMenu') && (navMenu !== element)) {
+            navMenu.classList.remove('openMenu');
+            navMenu.classList.add('closeMenu');
+            app.classList.remove('active_menu');
+            btnMenu.classList.remove('open');
+        } 
+    }
+
 
     return (
         <header className="header">
             <div className="container">
                 <div className="header__wrapper">
-                    <div className="header__logo">
+                    <div className="header__logo" onClick={() => startCloseMenu()}>
                         <Link to="/">< Logo /></Link>
                     </div>
-                    < Nav />
-
+                    < Nav getNavMenu={getNavMenu} startCloseMenu={startCloseMenu}/>
                     <div className="header__marked">
-                        <div className="header__marked__like">
+                        <div className="header__marked__like" onClick={() => startCloseMenu()}>
                             <Link to="/list-of-liked"><img src={ico_folder_like} alt="folder-like"/></Link>
                         </div>
                     </div>
