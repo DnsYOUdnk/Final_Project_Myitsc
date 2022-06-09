@@ -2,16 +2,23 @@ import { useContext, useEffect, useState } from "react";
 import { dataContext } from "../../../dataContext/dataContext";
 import { MediaELement } from "./GetMediaElement";
 import { SearchInput } from "../../SearchInput/SearchInput";
+import { PageEmpty } from "../PageEmpty/PageEmpty";
+import { Pagination } from "../../Pagination/Pagination";
 import { v4 as uuidv4 } from "uuid";
 import './pages_media.css';
 import Lottie from "lottie-react";
 import lottie_loading from '../../../assets/json-animation/lottie-loading.json';
-import { PageEmpty } from "../PageEmpty/PageEmpty";
 
 export const PageMedia = ({requestName, pageName, requestKey, url}) => {
     const [mediaData, setMediaData] = useState([]);
     const { searchValue } = useContext(dataContext);
     const [isLoading, setIsLoading] = useState(true);
+
+    const setReceivedData = (data) => {
+        setMediaData(data);
+        setIsLoading(false);
+        localStorage.setItem(pageName, JSON.stringify(data));
+    }
 
     useEffect(() => {
         if(localStorage.getItem(pageName)) {
@@ -22,19 +29,11 @@ export const PageMedia = ({requestName, pageName, requestKey, url}) => {
         if(!url) {
             fetch(`https://imdb-api.com/en/API/${requestName}/k_zciyt5lj`)
                 .then(res => res.json())
-                .then(json => { setMediaData(json.items);
-                                setIsLoading(false);
-                                localStorage.setItem(pageName, JSON.stringify(json.items));
-                                console.log(pageName)
-                             })
+                .then(json => setReceivedData(json.items))
         } else {
             fetch(url)
                 .then(res => res.json())
-                .then(json => {
-                    setMediaData(json);
-                    setIsLoading(false);
-                    localStorage.setItem(pageName, JSON.stringify(json));
-                })
+                .then(json => setReceivedData(json))
         }
     },[])
     
@@ -59,7 +58,7 @@ export const PageMedia = ({requestName, pageName, requestKey, url}) => {
                             {mediaData.filter(({title}) => {
                                 if(!searchValue) return true;
                                 return (title.toLowerCase().includes(searchValue))
-                            }).map((mediaContent) => {
+                            }).slice(0,12).map((mediaContent) => {
                                 return < MediaELement mediaContent={mediaContent} key={uuidv4()} />
                             })}
                         </ul> : isLoading ? <div className="media__loading" onClick={() => stopLoading()}>
@@ -68,6 +67,9 @@ export const PageMedia = ({requestName, pageName, requestKey, url}) => {
                                     </div> 
                                 </div> : < PageEmpty />
                         }
+                    </div>
+                    <div className="page__media__pagination">
+                        < Pagination />
                     </div>
                 </div>
             </div>

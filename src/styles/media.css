@@ -400,4 +400,12 @@
         width: 60%;
     }
 
+    .pagination {
+        gap: 0px;
+    }
+
+    .pagination__btn {
+        transform: scale(0.8);
+    }
+
 }
