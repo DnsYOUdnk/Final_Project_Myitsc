@@ -68,7 +68,7 @@ export const ElementMedia = ({ contentData }) => {
             <h2>{title}{original_title ? ' - ' + original_title : ''}</h2>
             <div className="page__media__content__inform">
                 <div className="page__media__content__pic">
-                    <img src={image ? image : '../../../assets/image/no-picture.jpg'} alt={title} />
+                    <img src={image} alt={title} />
                 </div>
                 <div className="page__media__content__inform__table">
                     <ul className="page__media__content__inform__items">

@@ -301,6 +301,11 @@
         width: 280px;
     }
 
+    .page__media__content__pic {
+        min-width: 320px;
+        min-height: 480px;
+    }
+
     .page__media__content__pic img {
         height: 480px;
     }
@@ -362,6 +367,11 @@
 
     .page__media__content__pic img {
         height: 380px;
+    }
+
+    .page__media__content__pic {
+        min-width: 250px;
+        min-height: 380px;
     }
     
     .page__media__player {
