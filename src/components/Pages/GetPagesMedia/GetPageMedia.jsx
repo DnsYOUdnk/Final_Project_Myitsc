@@ -14,18 +14,26 @@ export const PageMedia = ({requestName, pageName, requestKey, url}) => {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
+        if(localStorage.getItem(pageName)) {
+            setMediaData(JSON.parse(localStorage.getItem(pageName)));
+            setIsLoading(false);
+            return
+        }
         if(!url) {
             fetch(`https://imdb-api.com/en/API/${requestName}/k_zciyt5lj`)
                 .then(res => res.json())
-                .then(json => { setMediaData(json.items)
+                .then(json => { setMediaData(json.items);
                                 setIsLoading(false);
+                                localStorage.setItem(pageName, JSON.stringify(json.items));
+                                console.log(pageName)
                              })
         } else {
             fetch(url)
                 .then(res => res.json())
                 .then(json => {
-                    setMediaData(json.slice(0, 21));
+                    setMediaData(json);
                     setIsLoading(false);
+                    localStorage.setItem(pageName, JSON.stringify(json));
                 })
         }
     },[])

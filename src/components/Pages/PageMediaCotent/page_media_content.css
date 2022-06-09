@@ -22,6 +22,8 @@
 }
 
 .page__media__content__pic {
+    /* min-width: 400px; */
+    /* min-height: 500px; */
     padding: 10px;
     box-sizing: border-box;
     background: linear-gradient(180deg, #7779a0 -52%, rgba(21, 27, 100, 0.17) 100%);
