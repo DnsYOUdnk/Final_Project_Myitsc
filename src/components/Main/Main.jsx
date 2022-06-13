@@ -14,7 +14,7 @@ export const Main = () => {
             <WrapperScroll>
                 <Routes>
                     <Route path="/" element={ < Home /> } />
-                    <Route path="/movie" element={ < PageMovie /> } />
+                    <Route path="/movies" element={ < PageMovie /> } />
                     <Route path="/serials" element={ < PageSerials /> } />
                     <Route path="/cartoons" element={ < PageCartoons /> } />
                     <Route path=":page/media/:id/:title" element={ < PageMediaContent /> } />

@@ -401,7 +401,7 @@
     }
 
     .pagination {
-        gap: 0px;
+        gap: 1px;
     }
 
     .pagination__btn {

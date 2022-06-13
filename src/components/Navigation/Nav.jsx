@@ -15,7 +15,7 @@ export const Nav = ({ getNavMenu, startCloseMenu }) => {
             <nav className="header__nav">
                 <ul className="header__nav__items" ref={ul} onClick={(e) => startCloseMenu(e.target)} onAnimationEnd = {() => clearNavMenu()}>
                     <li className="header__nav__item active"><NavLink to="/">Home</NavLink></li>
-                    <li className="header__nav__item"><NavLink to="/movie">Movie</NavLink></li>
+                    <li className="header__nav__item"><NavLink to="/movies">Movies</NavLink></li>
                     <li className="header__nav__item"><NavLink to="/serials">Serials</NavLink></li>
                     <li className="header__nav__item"><NavLink to="/cartoons">Cartoons</NavLink></li>
                 </ul>
