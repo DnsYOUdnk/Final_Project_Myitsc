@@ -20,8 +20,12 @@ export const PageLikeList = () => {
                     <div className="page__media__like-list">
                         { markedElements.filter(({liked}) => liked).length > 0 ? 
                             <ul className="page__media__like-list__items">
-                                {markedElements.map(( mediaContent ) => {
-                                    if(mediaContent.liked) return < LikedMediaElement mediaContent={ mediaContent } key={ uuidv4() } />
+                                {markedElements.map((mediaContent) => {
+                                    if(mediaContent.liked) {
+                                        return < LikedMediaElement mediaContent={ mediaContent } key={ uuidv4() } />;
+                                    } else {
+                                        return '';
+                                    }
                                 })}
                             </ul> : 
                                 < PageEmpty />

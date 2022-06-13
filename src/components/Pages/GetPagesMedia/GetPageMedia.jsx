@@ -14,24 +14,30 @@ export const PageMedia = ({requestName, pageName, url}) => {
     const [mediaData, setMediaData] = useState([]);
     const { searchValue } = useContext(dataContext);
     const [isLoading, setIsLoading] = useState(true);
-    const [ numPage, setNumbPage] = useState(1);
+    let [quantityPages, setQuantityPages] = useState(1);
     const location = useLocation();
 
+    const localStorageMediaData = localStorage.getItem(pageName) ? JSON.parse(localStorage.getItem(pageName)) : [];
+
     const setReceivedData = (data) => {
-        console.log(Math.ceil(data.length/12));
-        setMediaData(data);
+        let pageNumber = location.search ? +location.search.split('=')[1] : 1;
+        let pageData = data.slice(0,12 + pageNumber)
+        setMediaData(pageData);
         setIsLoading(false);
         localStorage.setItem(pageName, JSON.stringify(data));
     }
 
-    useEffect(() => {
-        console.log('hello' + pageName)
-    }, [location])
+    const getQuantityElements = () => {
+        quantityPages = Math.ceil(localStorageMediaData.length/12);
+        setQuantityPages(quantityPages);
+    }
 
     useEffect(() => {
-        if(localStorage.getItem(pageName)) {
-            console.log(Math.ceil(JSON.parse(localStorage.getItem(pageName)).length/12))
-            setMediaData(JSON.parse(localStorage.getItem(pageName)));
+        if(localStorageMediaData.length !== 0) {
+            getQuantityElements()
+            let pageNumber = location.search ? +location.search.split('=')[1] : 1;
+            let pageData = localStorageMediaData.slice(0,12/pageNumber)
+            setMediaData(pageData);
             setIsLoading(false);
             return
         }
@@ -44,7 +50,7 @@ export const PageMedia = ({requestName, pageName, url}) => {
                 .then(res => res.json())
                 .then(json => setReceivedData(json))
         }
-    },[])
+    },[location])
     
     const stopLoading = () => {
         setIsLoading(false);
@@ -67,7 +73,7 @@ export const PageMedia = ({requestName, pageName, url}) => {
                             {mediaData.filter(({ title }) => {
                                 if( !searchValue ) return true;
                                 return ( title.toLowerCase().includes(searchValue) )
-                            }).slice(0, 12).map(( mediaContent ) => {
+                            }).map(( mediaContent ) => {
                                 return < MediaELement mediaContent={ mediaContent } key={ uuidv4() } />
                             })}
                         </ul> : isLoading ? <div className="media__loading" onClick={() => stopLoading()}>
@@ -77,9 +83,11 @@ export const PageMedia = ({requestName, pageName, url}) => {
                                 </div> : < PageEmpty />
                         }
                     </div>
-                    <div className="page__media__pagination">
-                        < Pagination numPage={ numPage } setNumbPage={ setNumbPage } />
-                    </div>
+                    {isLoading ? '' :
+                        <div className="page__media__pagination">
+                            < Pagination location={ location } quantityPages={quantityPages} />
+                        </div>
+                    }
                 </div>
             </div>
         </div>

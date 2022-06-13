@@ -38,6 +38,6 @@
     padding: 8px 10px;
 }
 
-.btn_last {
+.btn_last svg {
     transform: scale(-1,1);
 }
