@@ -18,10 +18,10 @@ export const PageMedia = ({requestName, pageName, url}) => {
     const location = useLocation();
 
     const localStorageMediaData = localStorage.getItem(pageName) ? JSON.parse(localStorage.getItem(pageName)) : [];
-
+// пересмотреть. в общем работает но нужно лучше.
     const setReceivedData = (data) => {
         let pageNumber = location.search ? +location.search.split('=')[1] : 1;
-        let pageData = data.slice(0,12 + pageNumber)
+        let pageData = data.slice((pageNumber-1)*12, pageNumber*12)
         setMediaData(pageData);
         setIsLoading(false);
         localStorage.setItem(pageName, JSON.stringify(data));
@@ -36,7 +36,8 @@ export const PageMedia = ({requestName, pageName, url}) => {
         if(localStorageMediaData.length !== 0) {
             getQuantityElements()
             let pageNumber = location.search ? +location.search.split('=')[1] : 1;
-            let pageData = localStorageMediaData.slice(0,12/pageNumber)
+            // let pageData = localStorageMediaData.slice(0,12/pageNumber)
+            let pageData = localStorageMediaData.slice((pageNumber-1)*12, pageNumber*12)
             setMediaData(pageData);
             setIsLoading(false);
             return
