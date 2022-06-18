@@ -5,7 +5,7 @@ import { dataContext } from '../../../dataContext/dataContext';
 
 export const LikedMediaElement = ({ mediaContent }) => {
     
-    const { markedElements, setMarkedElements, changeLikedData} = useContext(dataContext);
+    const { markedElements, setMarkedElements, changeLikedData } = useContext(dataContext);
     let { id, image, title, description, plot, director, directors, liked, viewed } = mediaContent;
 
     description = description || plot;

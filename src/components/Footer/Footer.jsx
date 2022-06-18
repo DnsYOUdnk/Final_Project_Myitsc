@@ -42,7 +42,7 @@ export const Footer = () => {
                         </div>
                     </div>
                     <div className="footer__copyright">
-                        Copyright &copy; 2021 Sinauw. All Rights Reserved.
+                        Copyright &copy; 2022 Sinauw. All Rights Reserved.
                     </div>
                 </div>
             </div>

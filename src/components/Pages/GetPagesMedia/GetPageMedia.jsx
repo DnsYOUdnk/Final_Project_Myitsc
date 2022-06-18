@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { dataContext } from "../../../dataContext/dataContext";
 import { MediaELement } from "./GetMediaElement";
 import { SearchInput } from "../../SearchInput/SearchInput";
@@ -8,41 +9,40 @@ import { v4 as uuidv4 } from "uuid";
 import './pages_media.css';
 import Lottie from "lottie-react";
 import lottie_loading from '../../../assets/json-animation/lottie-loading.json';
-import { useLocation } from "react-router-dom";
 
-export const PageMedia = ({requestName, pageName, url}) => {
-    const [mediaData, setMediaData] = useState([]);
-    const { searchValue } = useContext(dataContext);
-    const [isLoading, setIsLoading] = useState(true);
-    let [quantityPages, setQuantityPages] = useState(1);
+export const PageMedia = ({ requestName, pageName, url }) => {
+    const [ mediaData, setMediaData ] = useState({data: [], page: 1});
+    const { searchValue, getReceivedMediaData } = useContext(dataContext);
+    const [ isLoading, setIsLoading ] = useState(true);
+    //начало 1
+    let [ quantityPages, setQuantityPages ] = useState(1); //delete after
     const location = useLocation();
 
     const localStorageMediaData = localStorage.getItem(pageName) ? JSON.parse(localStorage.getItem(pageName)) : [];
 // пересмотреть. в общем работает но нужно лучше.
+
+    let indexPage = 12;
+        if(window.screen.availWidth <= 768) {
+            indexPage = 6;
+        }
+    //начало 3
     const setReceivedData = (data) => {
-        let pageNumber = location.search ? +location.search.split('=')[1] : 1;
-        let pageData = data.slice((pageNumber-1)*12, pageNumber*12)
-        setMediaData(pageData);
+        if(!localStorage.getItem(pageName)) localStorage.setItem(pageName, JSON.stringify(data));
+        getReceivedMediaData(data, location.search, setMediaData, indexPage);
         setIsLoading(false);
-        localStorage.setItem(pageName, JSON.stringify(data));
+        getQuantityElements(data)
     }
 
-    const getQuantityElements = () => {
-        quantityPages = Math.ceil(localStorageMediaData.length/12);
+    //начало 4
+    const getQuantityElements = (data) => {
+        quantityPages = Math.ceil(data.length/indexPage);
         setQuantityPages(quantityPages);
     }
 
     useEffect(() => {
         if(localStorageMediaData.length !== 0) {
-            getQuantityElements()
-            let pageNumber = location.search ? +location.search.split('=')[1] : 1;
-            // let pageData = localStorageMediaData.slice(0,12/pageNumber)
-            let pageData = localStorageMediaData.slice((pageNumber-1)*12, pageNumber*12)
-            setMediaData(pageData);
-            setIsLoading(false);
-            return
-        }
-        if(!url) {
+            setReceivedData(localStorageMediaData);
+        } else if(!url) {
             fetch(`https://imdb-api.com/en/API/${requestName}/k_zciyt5lj`)
                 .then(res => res.json())
                 .then(json => setReceivedData(json.items))
@@ -51,7 +51,7 @@ export const PageMedia = ({requestName, pageName, url}) => {
                 .then(res => res.json())
                 .then(json => setReceivedData(json))
         }
-    },[location])
+    }, [location])
     
     const stopLoading = () => {
         setIsLoading(false);
@@ -70,8 +70,8 @@ export const PageMedia = ({requestName, pageName, url}) => {
                         </div>
                     </div>
                     <div className="page__media__catalog">
-                        {mediaData.length > 0 ? <ul className="page__media__catalog__items">
-                            {mediaData.filter(({ title }) => {
+                        {mediaData.data.length > 0 ? <ul className="page__media__catalog__items">
+                            {mediaData.data.filter(({ title }) => {
                                 if( !searchValue ) return true;
                                 return ( title.toLowerCase().includes(searchValue) )
                             }).map(( mediaContent ) => {
@@ -86,7 +86,7 @@ export const PageMedia = ({requestName, pageName, url}) => {
                     </div>
                     {isLoading ? '' :
                         <div className="page__media__pagination">
-                            < Pagination location={ location } quantityPages={quantityPages} />
+                            < Pagination currentPage = {mediaData.currentPage} quantityPages={quantityPages} />  {/*начало 8 */}
                         </div>
                     }
                 </div>
