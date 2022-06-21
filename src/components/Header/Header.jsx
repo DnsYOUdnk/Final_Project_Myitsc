@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assets/svg/logo.svg";
 import ico_folder_like from "./../../assets/image/ico-folder-like.png";
 import { Nav } from "../Navigation/Nav";
@@ -44,7 +44,7 @@ export const Header = () => {
                     < Nav getNavMenu={getNavMenu} startCloseMenu={startCloseMenu}/>
                     <div className="header__marked">
                         <div className="header__marked__like" onClick={() => startCloseMenu()}>
-                            <Link to="/list-of-liked"><img src={ico_folder_like} alt="folder-like"/></Link>
+                            <NavLink to="/list-of-liked"><img src={ico_folder_like} alt="folder-like"/></NavLink>
                         </div>
                     </div>
                 </div>

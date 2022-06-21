@@ -49,7 +49,7 @@
 .header__marked__like img{
     cursor: pointer;
     padding: 4px;
-    transition: 1s;
+    transition: 0.3s;
 }
 
 .header__marked__like img:hover{
@@ -58,4 +58,10 @@
 
 .header__marked__like img:active {
     transform: scale(0.5);
+}
+
+.header__marked__like > a.active img {
+    /* transform: rotate(180deg); */
+    border-radius: 10px;
+    background: linear-gradient(0deg, #ffffff86 -20%, rgba(86, 30, 87, 1) 100%);
 }
