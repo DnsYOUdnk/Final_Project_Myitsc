@@ -1,9 +1,10 @@
 import { useLocation } from 'react-router-dom';
-import { useLayoutEffect } from 'react';
+import { useEffect } from 'react';
 
 export const WrapperScroll = ({children}) => {
     const location = useLocation();
-    useLayoutEffect(() => {
+    
+    useEffect(() => {
       window.scrollTo({ top: 0 });
     }, [ location ]);
     return children

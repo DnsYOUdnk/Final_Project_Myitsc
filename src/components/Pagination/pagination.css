@@ -17,6 +17,7 @@
 
 .pagination__btn {
     cursor: pointer;
+    border: none;
     border-radius: 6px;
     background: linear-gradient(180deg, #2a2d5d -52%, rgba(30, 32, 87, 0.8) 100%);
     transition: 50ms;
@@ -39,4 +40,8 @@
 
 .btn_last svg {
     transform: scale(-1,1);
+}
+
+.pagination__btn.disabled {
+    visibility: hidden;
 }
