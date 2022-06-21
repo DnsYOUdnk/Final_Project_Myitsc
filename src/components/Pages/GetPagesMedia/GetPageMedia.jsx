@@ -11,32 +11,23 @@ import Lottie from "lottie-react";
 import lottie_loading from '../../../assets/json-animation/lottie-loading.json';
 
 export const PageMedia = ({ requestName, pageName, url }) => {
-    const [ mediaData, setMediaData ] = useState({data: [], page: 1});
     const { searchValue, getReceivedMediaData } = useContext(dataContext);
+    const [ mediaData, setMediaData ] = useState({data: [], currentPage: 0, totalPages: 0});
     const [ isLoading, setIsLoading ] = useState(true);
-    //начало 1
-    let [ quantityPages, setQuantityPages ] = useState(1); //delete after
+
     const location = useLocation();
 
     const localStorageMediaData = localStorage.getItem(pageName) ? JSON.parse(localStorage.getItem(pageName)) : [];
-// пересмотреть. в общем работает но нужно лучше.
 
     let indexPage = 12;
         if(window.screen.availWidth <= 768) {
             indexPage = 6;
         }
-    //начало 3
+
     const setReceivedData = (data) => {
         if(!localStorage.getItem(pageName)) localStorage.setItem(pageName, JSON.stringify(data));
         getReceivedMediaData(data, location.search, setMediaData, indexPage);
         setIsLoading(false);
-        getQuantityElements(data)
-    }
-
-    //начало 4
-    const getQuantityElements = (data) => {
-        quantityPages = Math.ceil(data.length/indexPage);
-        setQuantityPages(quantityPages);
     }
 
     useEffect(() => {
@@ -86,7 +77,7 @@ export const PageMedia = ({ requestName, pageName, url }) => {
                     </div>
                     {isLoading ? '' :
                         <div className="page__media__pagination">
-                            < Pagination currentPage = {mediaData.currentPage} quantityPages={quantityPages} />  {/*начало 8 */}
+                            < Pagination currentPage = {mediaData.currentPage} totalPages={mediaData.totalPages} />
                         </div>
                     }
                 </div>

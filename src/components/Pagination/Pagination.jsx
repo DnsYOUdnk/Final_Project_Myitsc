@@ -1,19 +1,25 @@
 import { SignInIcon, TriangleLeftIcon, TriangleRightIcon } from '@primer/octicons-react';
-import { useNavigate } from 'react-router-dom'
-import './pagination.css'
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './pagination.css';
 
-export const Pagination = ({ currentPage, quantityPages }) => {
+export const Pagination = ({ currentPage, totalPages }) => {
     const navigate = useNavigate();
     let currentValuePage = currentPage;
+
+    useEffect(() => {
+        navigate('./')
+    },[])
+
     const changeNavPage = (step) => {
         switch(step) {
             case 'first': currentValuePage = 1;
             break;
-            case 'prev': currentValuePage = currentValuePage > 1 ? --currentValuePage : 1;
+            case 'prev': currentValuePage = currentPage > 1 ? --currentPage : 1;
             break;
-            case 'next': currentValuePage = currentValuePage < quantityPages ? ++currentValuePage : quantityPages;
+            case 'next': currentValuePage = currentPage < totalPages ? ++currentPage : totalPages;
             break;
-            case 'last': currentValuePage = quantityPages;
+            case 'last': currentValuePage = totalPages;
             break;
             default: break;
         }
