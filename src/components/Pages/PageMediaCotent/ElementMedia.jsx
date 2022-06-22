@@ -2,10 +2,11 @@ import ico_btn_like from "../../../assets/image/ico-btn-like.png";
 import ico_btn_like_active from "../../../assets/image/ico-btn-like-active.png";
 import ico_btn_view from "../../../assets/image/ico-btn-view.png";
 import ico_btn_not_view from "../../../assets/image/ico-btn-not-view.png";
-import './page_media_content.css'
 import { useContext, useEffect, useState } from "react";
-import { MediaPlayer } from "../../MediaPlayer/MediaPlayer";
 import { dataContext } from "../../../dataContext/dataContext";
+import { ImageElementMedia } from "./ImageElementMedia";
+import { MediaPlayer } from "../../MediaPlayer/MediaPlayer";
+import './page_media_content.css';
 import Lottie from "lottie-react";
 import lottie_loading from '../../../assets/json-animation/lottie-loading.json';
 
@@ -63,13 +64,15 @@ export const ElementMedia = ({ contentData }) => {
         });
     })
 
+    const getPopUpImage = () => {
+        console.log(image)
+    }
+
     return (
         <div className="page__media__content__wrapper">
             <h2>{title}{original_title ? ' - ' + original_title : ''}</h2>
             <div className="page__media__content__inform">
-                <div className="page__media__content__pic">
-                    <img src={image} alt={title} />
-                </div>
+                <ImageElementMedia image={image} title={title} />
                 <div className="page__media__content__inform__table">
                     <ul className="page__media__content__inform__items">
 

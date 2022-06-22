@@ -27,16 +27,14 @@
     padding: 10px;
     background: linear-gradient(180deg, #7779a0 -52%, rgba(21, 27, 100, 0.17) 100%);
     border-radius: 20px;
-    cursor: pointer;
     text-align: center;
+    cursor: url(../../../assets/svg/media_element-image_zoom.svg), zoom-in;
 }
 
 .page__media__content__pic img {
     border-radius: 16px;
     height: 680px;
 }
-
-.page__media__content__pic img
 
 .page__media__content__inform__table {
     display: flex;

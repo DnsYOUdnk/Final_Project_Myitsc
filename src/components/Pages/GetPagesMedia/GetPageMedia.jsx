@@ -25,6 +25,7 @@ export const PageMedia = ({ requestName, pageName, url }) => {
         }
 
     const setReceivedData = (data) => {
+        if(!Array.isArray(data)) return
         if(!localStorage.getItem(pageName)) localStorage.setItem(pageName, JSON.stringify(data));
         getReceivedMediaData(data, location.search, setMediaData, indexPage);
         setIsLoading(false);
@@ -57,15 +58,16 @@ export const PageMedia = ({ requestName, pageName, url }) => {
                             <h1>{pageName}</h1>
                         </div>
                         <div className="page__media__hat__search">
-                            < SearchInput />
+                            < SearchInput 
+                                setMediaData={setMediaData} 
+                                localStorageMediaData={localStorageMediaData} 
+                                setReceivedData={setReceivedData}
+                            />
                         </div>
                     </div>
                     <div className="page__media__catalog">
                         {mediaData.data.length > 0 ? <ul className="page__media__catalog__items">
-                            {mediaData.data.filter(({ title }) => {
-                                if( !searchValue ) return true;
-                                return ( title.toLowerCase().includes(searchValue) )
-                            }).map(( mediaContent ) => {
+                            {mediaData.data.map(( mediaContent ) => {
                                 return < MediaELement mediaContent={ mediaContent } key={ uuidv4() } />
                             })}
                         </ul> : isLoading ? <div className="media__loading" onClick={() => stopLoading()}>
@@ -75,7 +77,7 @@ export const PageMedia = ({ requestName, pageName, url }) => {
                                 </div> : < PageEmpty />
                         }
                     </div>
-                    {isLoading ? '' :
+                    {isLoading || mediaData.totalPages === 0 ? '' :
                         <div className="page__media__pagination">
                             < Pagination currentPage = {mediaData.currentPage} totalPages={mediaData.totalPages} />
                         </div>
@@ -85,3 +87,8 @@ export const PageMedia = ({ requestName, pageName, url }) => {
         </div>
     )
 }
+
+// .filter(({ title }) => {
+//     if( !searchValue ) return true;
+//     return ( title.toLowerCase().includes(searchValue) )
+// }) 
