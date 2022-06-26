@@ -3,7 +3,7 @@ import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { dataContext } from '../../../dataContext/dataContext';
 
-export const LikedMediaElement = ({ mediaContent }) => {
+export const LikedMediaElement = ({ mediaContent, viewMessageAlert }) => {
     
     const { markedElements, setMarkedElements, changeLikedData } = useContext(dataContext);
     let { id, image, title, description, plot, director, directors, liked, viewed } = mediaContent;
@@ -31,8 +31,17 @@ export const LikedMediaElement = ({ mediaContent }) => {
                 <div className="page__media__like-list__description"><span>Description:</span> {description.slice(0, 300) + '...'}</div>
             </div>
             <div className="page__media__like-list__btn">
-                <button className={classnames("page__media__like-list__view like-list__btn", {"active" : viewed})} onClick={() => changeLikedData('btn-view', setAddView, addView, setAddLike, addLike, mediaContent, markedElements, setMarkedElements)}>{viewed ? 'Watched' : 'Not watched'}</button>
-                <button className="page__media__like-list__like like-list__btn" onClick={() => changeLikedData('btn-like', setAddView, addView, setAddLike, addLike, mediaContent, markedElements, setMarkedElements)}>Remove from liked</button>
+                <button className={classnames("page__media__like-list__view like-list__btn", {"active" : viewed})} 
+                    onClick={() => {
+                        changeLikedData('btn-view', setAddView, addView, setAddLike, addLike, mediaContent, markedElements, setMarkedElements);
+                        viewMessageAlert("view", title, addLike, addView);
+                    }}>{viewed ? 'Watched' : 'Not watched'}
+                </button>
+                <button className="page__media__like-list__like like-list__btn" 
+                onClick={() => {
+                    changeLikedData('btn-like', setAddView, addView, setAddLike, addLike, mediaContent, markedElements, setMarkedElements);
+                    viewMessageAlert("like", title, addLike, addView);
+                    }}>Remove from liked</button>
             </div>
         </li>
     )

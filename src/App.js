@@ -9,14 +9,11 @@ import './styles/style.css';
 import './styles/media.css';
 
 function App() {
-  const [searchValue, setSearchValue] = useState('');
   const likedData = getLikedData();
   const [markedElements, setMarkedElements] = useState(likedData);
 
   return (
       <dataContext.Provider value = {{ 
-        searchValue, 
-        setSearchValue, 
         markedElements, 
         setMarkedElements, 
         changeLikedData, 

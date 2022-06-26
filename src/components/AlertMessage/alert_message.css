@@ -1,0 +1,33 @@
+.alert_messages {
+    list-style: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.alert__message {
+    margin: 0 4px;
+    max-width: 600px;
+    width: 86%;
+    padding: 26px 10px;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    border-radius: 4px;
+    box-sizing: border-box;
+    backdrop-filter: blur(6px);
+    background: linear-gradient(180deg, #77a092 -22%, rgba(31, 177, 111, 0.3) 100%);
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+  }
+
+.alert__message.disabled {
+    background: linear-gradient(180deg, #a07777 -22%, rgba(177, 31, 31, 0.3) 100%);
+}

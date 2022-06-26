@@ -11,7 +11,7 @@ import Lottie from "lottie-react";
 import lottie_loading from '../../../assets/json-animation/lottie-loading.json';
 
 export const PageMedia = ({ requestName, pageName, url }) => {
-    const { searchValue, getReceivedMediaData } = useContext(dataContext);
+    const { getReceivedMediaData } = useContext(dataContext);
     const [ mediaData, setMediaData ] = useState({data: [], currentPage: 0, totalPages: 0});
     const [ isLoading, setIsLoading ] = useState(true);
 
@@ -87,8 +87,3 @@ export const PageMedia = ({ requestName, pageName, url }) => {
         </div>
     )
 }
-
-// .filter(({ title }) => {
-//     if( !searchValue ) return true;
-//     return ( title.toLowerCase().includes(searchValue) )
-// }) 
