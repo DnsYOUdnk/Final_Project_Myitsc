@@ -15,7 +15,6 @@ export const LikedMediaElement = ({ mediaContent, viewMessageAlert }) => {
     let [addLike, setAddLike ] = useState(liked);
 
     const navigate = useNavigate();
-
     const handleClick = () => {
         navigate(`./media/${id}/${title}`)
     }

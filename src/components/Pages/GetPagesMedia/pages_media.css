@@ -91,6 +91,7 @@
     font-size: 18px;
     line-height: 130%;
     color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 0em;
 }
 
 .page__media__item__creators > p{
@@ -99,6 +100,7 @@
     line-height: 150%;
     color: rgba(255, 255, 255, 0.4);
     padding-top: 10px;
+    margin-bottom: 0em;
 }
 
 .page__media__pagination {

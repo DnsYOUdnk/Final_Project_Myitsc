@@ -29,6 +29,7 @@
 }
 
 .promo__title h1 {
+    margin-bottom: 0em;
     max-width: 440px;
     font-weight: 600;
     font-size: 48px;
@@ -153,6 +154,7 @@
 
 .best__products__img {
     position: relative;
+    height: 170px;
 }
 
 .img__background{
@@ -177,7 +179,8 @@
     line-height: 150%;
     color: rgba(255, 255, 255, 0.8);
     padding: 14px 0;
-    height: 50px;
+    height: 80px;
+    margin-bottom: 0;
 }
 
 .best__products__description p{
@@ -186,6 +189,7 @@
     line-height: 150%;
     color: rgba(255, 255, 255, 0.4);
     padding-bottom: 20px;
+    margin-bottom: 0;
 }
 
 .best__products__item__btn {

@@ -6,6 +6,8 @@
     color: rgba(255, 255, 255, 1);
     border-radius: 12px;
     box-sizing: border-box;
+    font-size: 14px;
+    line-height: 14px;
 }
 
 .page__movie__input::placeholder {

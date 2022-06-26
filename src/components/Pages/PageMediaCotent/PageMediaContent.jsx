@@ -14,7 +14,7 @@ export const PageMediaContent = () => {
 
     useEffect(() => {
         if(/tt[0-9]*/g.test(id)) {
-            fetch(`https://imdb-api.com/en/API/Title/k_674v0y48/${id}`)
+            fetch(`https://imdb-api.com/en/API/Title/k_zciyt5lj/${id}`)
                 .then(res => res.json())
                 .then(json => {
                     setContentData(json);
@@ -29,7 +29,7 @@ export const PageMediaContent = () => {
                     setIsLoading(false)
                 })
         }
-    })
+    },[])
 
     const stopLoading = () => {
         setIsLoading(!isLoading);
@@ -38,7 +38,7 @@ export const PageMediaContent = () => {
     return (
         <div className="page__media__content">
             <div className="container">
-                { contentData.image ? < ElementMedia contentData={contentData} /> :  isLoading ? 
+                { contentData.id ? < ElementMedia contentData={contentData} /> :  isLoading ? 
                                 <div className="media__loading" onClick={() => stopLoading()}>
                                     <div className="media__loading__animation">
                                         <Lottie animationData={ lottie_loading } loop={true} autoplay = {true} />

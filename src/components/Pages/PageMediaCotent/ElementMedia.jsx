@@ -11,6 +11,8 @@ import { v4 as uuidv4 } from "uuid";
 import './page_media_content.css';
 import Lottie from "lottie-react";
 import lottie_loading from '../../../assets/json-animation/lottie-loading.json';
+import { Image } from 'antd';
+import 'antd/dist/antd.dark.css';
 
 
 export const ElementMedia = ({ contentData }) => {
@@ -65,13 +67,13 @@ export const ElementMedia = ({ contentData }) => {
                 setAddLike(elem.liked)
             }
         });
-    })
+    }, [])
 
     useEffect(() => {
         const timeout = setTimeout(() => {
             addMessageAlert.shift()
             setAddMessageAlert([...addMessageAlert])
-        }, 1500)
+        }, 500)
 
         return () => clearTimeout(timeout);
 
@@ -90,7 +92,9 @@ export const ElementMedia = ({ contentData }) => {
         <div className="page__media__content__wrapper">
             <h2>{title}{original_title ? ' - ' + original_title : ''}</h2>
             <div className="page__media__content__inform">
-                <ImageElementMedia image={image} title={title} />
+                <div className="page__media__content__pic">
+                    <Image src={image} title={title} />
+                </div>
                 <div className="page__media__content__inform__table">
                     <ul className="page__media__content__inform__items">
 
