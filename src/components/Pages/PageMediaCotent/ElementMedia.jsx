@@ -4,21 +4,17 @@ import ico_btn_view from "../../../assets/image/ico-btn-view.png";
 import ico_btn_not_view from "../../../assets/image/ico-btn-not-view.png";
 import { useContext, useEffect, useState } from "react";
 import { dataContext } from "../../../dataContext/dataContext";
-import { ImageElementMedia } from "./ImageElementMedia";
 import { MediaPlayer } from "../../MediaPlayer/MediaPlayer";
-import { AlertMessage } from "../../AlertMessage/AlertMessage";
-import { v4 as uuidv4 } from "uuid";
 import './page_media_content.css';
+
 import Lottie from "lottie-react";
 import lottie_loading from '../../../assets/json-animation/lottie-loading.json';
 import { Image } from 'antd';
-import 'antd/dist/antd.dark.css';
 
 
 export const ElementMedia = ({ contentData }) => {
     let [addView, setAddView ] = useState(false);
     let [addLike, setAddLike ] = useState(false);
-    let [addMessageAlert, setAddMessageAlert ] = useState([]);
 
     let [showVideoPlyer, setshowVideoPlyer ] = useState(false);
     let [addLinkVideo, setAddLinkVideo ] = useState([]);
@@ -69,25 +65,6 @@ export const ElementMedia = ({ contentData }) => {
         });
     }, [])
 
-    useEffect(() => {
-        const timeout = setTimeout(() => {
-            addMessageAlert.shift()
-            setAddMessageAlert([...addMessageAlert])
-        }, 500)
-
-        return () => clearTimeout(timeout);
-
-    }, [addMessageAlert])
-
-    const viewMessageAlert = (btn) => {
-        const viewBtn = btn === 'like' ? addLike : addView;
-        addMessageAlert.push({view: viewBtn, tag: btn});
-
-        if(addMessageAlert.length > 2) addMessageAlert.shift();
-
-        setAddMessageAlert([...addMessageAlert]);
-    }
-
     return (
         <div className="page__media__content__wrapper">
             <h2>{title}{original_title ? ' - ' + original_title : ''}</h2>
@@ -120,7 +97,6 @@ export const ElementMedia = ({ contentData }) => {
                                     title={addView ? "Watched" : "Not watched"} 
                                     onClick={() => {
                                         changeLikedData('btn-view', setAddView, addView, setAddLike, addLike, contentData, markedElements, setMarkedElements);
-                                        viewMessageAlert("view");
                                         }}>
                                     <img src={addView ? ico_btn_view : ico_btn_not_view} alt="view" />
                             </button>
@@ -128,7 +104,6 @@ export const ElementMedia = ({ contentData }) => {
                                     title={addLike ? "Liked it" : "Not like it"} 
                                     onClick={() => {
                                         changeLikedData('btn-like', setAddView, addView, setAddLike, addLike, contentData, markedElements, setMarkedElements);
-                                        viewMessageAlert("like");
                                         }}>
                                     <img src={addLike ? ico_btn_like_active : ico_btn_like} alt="like" />
                             </button>
@@ -150,14 +125,6 @@ export const ElementMedia = ({ contentData }) => {
                                     </div>
                                 </div> 
                                 : ''}
-            {addMessageAlert.length > 0 ? 
-                                <ul className="alert_messages">
-                                        {addMessageAlert.map(( messageData ) => {
-                                            return < AlertMessage messageData={ messageData } title={title} key={ uuidv4() }/>
-                                        })}
-                                </ul> 
-                                : ''
-            }
         </div>
     )
 }

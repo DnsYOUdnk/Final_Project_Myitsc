@@ -7,6 +7,7 @@ import { getLikedData, changeLikedData } from "./utils/changeMarkedLike";
 import { getReceivedMediaData } from './utils/changePaginationMediaPage'
 import './styles/style.css';
 import './styles/media.css';
+import 'antd/dist/antd.dark.css';
 
 function App() {
   const likedData = getLikedData();

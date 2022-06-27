@@ -21,23 +21,13 @@
     box-sizing: border-box;
     backdrop-filter: blur(6px);
     box-shadow: 0 3px 6px -4px rgb(0 0 0 / 12%), 0 6px 16px 0 rgb(0 0 0 / 8%), 0 9px 28px 8px rgb(0 0 0 / 5%);
-    background: linear-gradient(180deg, #77a092 -22%, rgba(31, 177, 111, 0.3) 100%);
+    background: linear-gradient(180deg, #77a092 -22%, #1fb16f4d 100%);
     font-size: 18px;
     color: rgba(255, 255, 255, 0.8);
     text-align: center;
     opacity: 1;
-    /* animation: view 0.8s ease-in-out; */
 }
 
-/* @keyframes view {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-} */
-
 .alert__message.disabled {
-    background: linear-gradient(180deg, #a07777 -22%, rgba(177, 31, 31, 0.3) 100%);
+    background: linear-gradient(180deg, #a07777 -22%, #b11f1f4d 100%);
 }
