@@ -33,12 +33,14 @@
     line-height: 170%;
     color: rgba(255, 255, 255, 0.4);
     padding: 8px 0 24px;
+    margin-bottom: 0em;
 }
 
 .footer__social__items {
     display: flex;
     gap: 32px;
     list-style: none;
+    margin-bottom: 0em;
 }
 
 .footer__social__item:hover {
@@ -59,6 +61,7 @@
     gap: 20px;
     max-height: 140px;
     list-style: none;
+    margin-bottom: 0em;
 }
 
 .footer__menu h3,
@@ -68,6 +71,7 @@
     line-height: 24px;
     padding: 18px 0 24px;
     color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 0em;
 }
 
 .footer__menu__item a,

@@ -84,3 +84,7 @@ html, body {
     width: 80%;
     margin: 0 auto;
 }
+
+.ant-image-mask {
+    border-radius: 16px;
+}
