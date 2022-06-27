@@ -88,3 +88,12 @@ html, body {
 .ant-image-mask {
     border-radius: 16px;
 }
+
+div.ant-message{
+    margin-top: 5vh;
+}
+
+.ant-message-notice-content {
+    max-width: 400px;
+    width: 90%;
+}

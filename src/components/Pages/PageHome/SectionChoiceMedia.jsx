@@ -24,8 +24,8 @@ export const SectionChoiceMedia1 = () => {
         },
         {
           key: uuidv4(),
-          hash: '/movie',
-          content: <div className="carousel__media__item__movie"><p className='carousel__media__desc'><span>Movie</span></p></div>
+          hash: '/movies',
+          content: <div className="carousel__media__item__movie"><p className='carousel__media__desc'><span>Movies</span></p></div>
         }
     ]
     .map((slide, index) => {

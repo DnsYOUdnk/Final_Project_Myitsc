@@ -1,4 +1,5 @@
 import { message } from 'antd';
+import { EyeTwoTone, HeartTwoTone, EyeInvisibleTwoTone, DislikeTwoTone } from '@ant-design/icons';
 
 export const getLikedData = () => {
     return localStorage.getItem('markedElements') ? JSON.parse(localStorage.getItem('markedElements')) : [];
@@ -37,18 +38,22 @@ export const changeLikedData = ( idBtn, setAddView, addView, setAddLike, addLike
 //Alert Message
     const properties = {
         content: `«${contentData.title}»`,
-        duration: 2,
         className: 'custom-class',
+        duration: 2,
         style: {
-            marginTop: '5vh',
-        },
+            marginTop: '2px',
+        }
     }
 
     if(!newValueBtn) {
+        properties.icon = idBtn === 'btn-like' ? <HeartTwoTone twoToneColor="#eb2f96" /> : <EyeTwoTone/>;
         properties.content += idBtn === 'btn-like' ? ' added to the liked list' : ' is marked by you as viewed';
         message.success(properties);
     } else {
+        properties.icon = idBtn === 'btn-like' ? <DislikeTwoTone /> : <EyeInvisibleTwoTone/>;
         properties.content += idBtn === 'btn-like' ? ' removed from the liked list' : ' removed from viewed';
         message.error(properties);
     }
+
+
 }
